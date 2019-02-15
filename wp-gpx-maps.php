@@ -712,6 +712,8 @@ function handle_WP_GPX_Maps_Shortcodes($attr, $content='')
 					ngImages : ['.$ngImages.'],
 					pluginUrl : "'.plugins_url().'",
 					TFApiKey : "'.get_option('wpgpxmaps_openstreetmap_apikey').'",
+					HEREAppID : "'.get_option('wpgpxmaps_here_appid').'",
+					HEREAppCode : "'.get_option('wpgpxmaps_here_appcode').'",
 					langs : { altitude              : "'.__("Altitude", "wp-gpx-maps").'",
 							  currentPosition       : "'.__("Current Position", "wp-gpx-maps").'",
 							  speed                 : "'.__("Speed", "wp-gpx-maps").'", 

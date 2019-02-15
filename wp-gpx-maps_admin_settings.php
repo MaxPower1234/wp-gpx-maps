@@ -111,6 +111,20 @@
 			</td>		
 		</tr>	
 
+		<tr>			
+			<th scope="row">HERE App ID:</th>
+			<td>				
+				<input name="wpgpxmaps_here_appid" type="text" id="wpgpxmaps_here_appid" value="<?php echo get_option('wpgpxmaps_here_appid'); ?>" style="width:400px" />  <em>(Go to <a href="https://developer.here.com/" target="_blank">HERE</a> and click &#8216;SIGN IN&#8217; to your HERE account)</em>
+			</td>		
+		</tr>	
+
+		<tr>			
+			<th scope="row">HERE App Code:</th>
+			<td>				
+				<input name="wpgpxmaps_here_appcode" type="text" id="wpgpxmaps_here_appcode" value="<?php echo get_option('wpgpxmaps_here_appcode'); ?>" style="width:400px" />  <em>(Go to <a href="https://developer.here.com/" target="_blank">HERE</a> and click &#8216;SIGN IN&#8217; to your HERE account)</em>
+			</td>		
+		</tr>	
+
 	</table>
 
 	<p class="submit">
@@ -257,6 +271,7 @@
 				<input type="radio" name="wpgpxmaps_map_type" value="OSM7" <?php if ($t == 'OSM7') echo 'checked'; ?>> Open Street Map - Humanitarian map style<br />
 				<input type="radio" name="wpgpxmaps_map_type" value="OSM9" <?php if ($t == 'OSM9') echo 'checked'; ?>> Hike & Bike<br />
 				<input type="radio" name="wpgpxmaps_map_type" value="OSM10" <?php if ($t == 'OSM10') echo 'checked'; ?>> Open Sea Map<br />
+				<input type="radio" name="wpgpxmaps_map_type" value="OSM11" <?php if ($t == 'OSM10') echo 'checked'; ?>> HERE Hybrid Day<br />
 			</td>
 		</tr>
 
