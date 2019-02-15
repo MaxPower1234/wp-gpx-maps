@@ -458,14 +458,14 @@ var WPGPXMAPS = {
 				
 				if (hasHereApiKey)
 				{
-					baseMaps["HERE Maps"] = L.tileLayer('https://' + (1 + ((' + {x} + ' + ' + {y} + ') % 4)).toString() + '.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8?app_id=' + HereAppID + '&app_code=' + HereAppCode, {
+					baseMaps["HERE Map"] = L.tileLayer('https://' + (1 + ((' + {x} + ' + ' + {y} + ') % 4)).toString() + '.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8?app_id=' + HereAppID + '&app_code=' + HereAppCode, {
 					maxZoom: 20,
 					attribution: 'Map &copy; ' + new Date().getFullYear() + ' <a href="https://developer.here.com">HERE</a>',
 						});
 				}
 				else
 				{
-					baseMaps["HERE Maps"] = L.tileLayer('https://' + (1 + ((' + {x} + ' + ' + {y} + ') % 4)).toString() + '.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8', {
+					baseMaps["HERE Map"] = L.tileLayer('https://' + (1 + ((' + {x} + ' + ' + {y} + ') % 4)).toString() + '.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8', {
 					maxZoom: 20,
 					attribution: 'Map &copy; ' + new Date().getFullYear() + ' <a href="https://developer.here.com">HERE</a>',
 						});
