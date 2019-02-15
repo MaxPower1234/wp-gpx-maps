@@ -787,8 +787,8 @@ var WPGPXMAPS = {
 		var usegpsposition = params.usegpsposition;
 		var currentpositioncon= params.currentpositioncon;
 		var ThunderforestApiKey = params.TFApiKey;
-		var ThunderforestApiKey = params.HEREAppID;
-		var ThunderforestApiKey = params.HEREAppCode;
+		var HereAppID = params.HEREAppID;
+		var HereAppCode = params.HEREAppCode;
 		
 		var hasThunderforestApiKey = (ThunderforestApiKey + '').length > 0;
 		
