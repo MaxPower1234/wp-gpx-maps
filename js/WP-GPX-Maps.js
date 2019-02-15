@@ -59,7 +59,7 @@ var WPGPXMAPS = {
 			this.map = null,
 			this.EventSelectChart = null,
 			this.Polylines = [],
-			this.init = function(targetElement, mapType, scrollWheelZoom, ThunderforestApiKey){
+			this.init = function(targetElement, mapType, scrollWheelZoom, ThunderforestApiKey, HereAppID, HereAppCode){
 				
 				var mapTypeIds = [];
 				for(var type in google.maps.MapTypeId) {
@@ -335,7 +335,7 @@ var WPGPXMAPS = {
 			this.Polylines = [],
 			this.CurrentPositionMarker = null,
 			this.CurrentGPSPositionMarker = null,
-			this.init = function(targetElement, mapType, scrollWheelZoom, ThunderforestApiKey){
+			this.init = function(targetElement, mapType, scrollWheelZoom, ThunderforestApiKey, HereAppID, HereAppCode){
 				
 				this.map = L.map(targetElement, 
 					{ 
@@ -353,6 +353,8 @@ var WPGPXMAPS = {
 				}).addTo(this.map);
 
 				var hasThunderforestApiKey = (ThunderforestApiKey + '').length > 0;
+				
+				var hasHereApiKey = (HereAppID + '').length > 0 && (HereAppCode + '').length > 0;
 				
 				var baseMaps = {};
 				
@@ -452,7 +454,22 @@ var WPGPXMAPS = {
 					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 						'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 						'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				});		
+				});
+				
+				if (hasHereApiKey)
+				{
+					baseMaps["HERE Maps"] = L.tileLayer('https://' + (1 + ((' + {x} + ' + ' + {y} + ') % 4)).toString() + '.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8?app_id=' + HereAppID + '&app_code=' + HereAppCode, {
+					maxZoom: 20,
+					attribution: 'Map &copy; ' + new Date().getFullYear() + ' <a href="https://developer.here.com">HERE</a>',
+						});
+				}
+				else
+				{
+					baseMaps["HERE Maps"] = L.tileLayer('https://' + (1 + ((' + {x} + ' + ' + {y} + ') % 4)).toString() + '.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8', {
+					maxZoom: 20,
+					attribution: 'Map &copy; ' + new Date().getFullYear() + ' <a href="https://developer.here.com">HERE</a>',
+						});
+				}
 
 				
 				switch (mapType)
@@ -491,6 +508,10 @@ var WPGPXMAPS = {
 					}
 					case 'OSM10': { 
 						baseMaps["Open Sea Map"].addTo(this.map);
+						break;
+					}
+					case 'OSM11': { 
+						baseMaps["HERE Map"].addTo(this.map);
 						break;
 					}
 					
@@ -766,6 +787,8 @@ var WPGPXMAPS = {
 		var usegpsposition = params.usegpsposition;
 		var currentpositioncon= params.currentpositioncon;
 		var ThunderforestApiKey = params.TFApiKey;
+		var ThunderforestApiKey = params.HEREAppID;
+		var ThunderforestApiKey = params.HEREAppCode;
 		
 		var hasThunderforestApiKey = (ThunderforestApiKey + '').length > 0;
 		
